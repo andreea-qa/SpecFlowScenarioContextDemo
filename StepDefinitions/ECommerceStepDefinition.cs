@@ -1,4 +1,8 @@
-﻿
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
+using SeleniumExtras.WaitHelpers;
+
 namespace SpecFlowScenarioContextDemo.StepDefinitions
 {
     [Binding]
@@ -17,20 +21,28 @@ namespace SpecFlowScenarioContextDemo.StepDefinitions
         [Given(@"I extend the Shop by Category menu")]
         public void GivenIExtendTheShopByCategoryMenu()
         {
-            
+            driver.FindElement(By.XPath("//a[normalize-space()='Shop by Category']")).Click();
+            WaitForElement($"//h5[normalize-space()='Top categories']");
         }
 
         [When(@"I select the (.*) category")]
         public void WhenISelectTheCategoryCategory(string categoryName)
         {
             scenarioContext["Category"] = categoryName;
+            driver.FindElement(By.XPath($"//span[normalize-space()='{scenarioContext["Category"]}']")).Click();
         }
 
         [Then(@"the correct page is loaded")]
-        public void ThenTheCategoryPageIsLoaded()
+        public void ThenTheCorrectPageIsLoaded()
         {
-            throw new PendingStepException();
+            WaitForElement($"//h3[text()='Filter']");
+            Assert.That(driver.Title == scenarioContext["Category"].ToString());
         }
 
+        private static void WaitForElement(string xpath)
+        {
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+            wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(xpath)));
+        }
     }
 }

@@ -92,7 +92,7 @@ namespace SpecFlowScenarioContextDemo.Features
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("<category>", category);
+            argumentsOfScenario.Add("category", category);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Navigate to categories", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 9
 this.ScenarioInitialize(scenarioInfo);
@@ -121,7 +121,7 @@ this.FeatureBackground();
  testRunner.Given("I extend the Shop by Category menu", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 11
- testRunner.When("I select the <category> category", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When(string.Format("I select the {0} category", category), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 12
  testRunner.Then("the correct page is loaded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

@@ -11,7 +11,7 @@ Scenario Outline: Navigate to categories
 	When I select the <category> category
 	Then the correct page is loaded
 Examples:
-	| <category> |
+	| category   |
 	| Components |
 	| Cameras    |
 	| Software   |
