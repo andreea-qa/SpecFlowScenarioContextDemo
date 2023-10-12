@@ -1,6 +1,6 @@
 ﻿Feature: ECommerce
 
-As a user, I want to navigate between the produc categories
+As a user, I want to navigate between the product categories
 So I can find the desired product in the list
 
 Background:
