@@ -7,7 +7,7 @@ Background:
 	Given I navigate to the LambdaTest ecommerce playground page
 
 Scenario Outline: Navigate to categories
-	Given I extend the Shop by Category menu
+	Given I expand the Shop by Category menu
 	When I select the <category> category
 	Then the correct page is loaded
 Examples:

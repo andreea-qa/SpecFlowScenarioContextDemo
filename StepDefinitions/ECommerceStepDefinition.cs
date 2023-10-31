@@ -18,8 +18,8 @@ namespace SpecFlowScenarioContextDemo.StepDefinitions
             driver.Navigate().GoToUrl("https://ecommerce-playground.lambdatest.io/");
         }
 
-        [Given(@"I extend the Shop by Category menu")]
-        public void GivenIExtendTheShopByCategoryMenu()
+        [Given(@"I expand the Shop by Category menu")]
+        public void GivenIExpandTheShopByCategoryMenu()
         {
             driver.FindElement(By.XPath("//a[normalize-space()='Shop by Category']")).Click();
             WaitForElement($"//h5[normalize-space()='Top categories']");

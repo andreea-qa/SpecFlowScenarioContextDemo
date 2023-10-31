@@ -38,7 +38,6 @@ namespace SpecFlowScenarioContextDemo.StepDefinitions
         [AfterScenario]
         internal void TearDown()
         {
-
             driver.Quit();
         }
 
